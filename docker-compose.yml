@@ -1,0 +1,24 @@
+services:
+  subsidium-web:
+    build: .
+    image: subsidium-web:latest
+    container_name: subsidium-web
+    restart: unless-stopped
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      # Meme domaine que les agents, mais sous le chemin /site (les agents restent a la racine, intacts)
+      - "traefik.http.routers.subsidium-web.rule=Host(`subsidium.elfe.info`) && PathPrefix(`/site`)"
+      - "traefik.http.routers.subsidium-web.entrypoints=websecure"
+      - "traefik.http.routers.subsidium-web.priority=100"
+      - "traefik.http.routers.subsidium-web.tls=true"
+      - "traefik.http.routers.subsidium-web.tls.certresolver=mytlschallenge"
+      - "traefik.http.services.subsidium-web.loadbalancer.server.port=80"
+
+# IMPORTANT : verifier sur le VPS le nom EXACT du reseau Traefik et du certresolver
+# (copier ceux du conteneur subsidium-test). Ajuster si besoin avant 'up'.
+networks:
+  traefik:
+    external: true
