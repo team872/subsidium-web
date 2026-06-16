@@ -202,6 +202,15 @@
   .howto .st-n{font-family:'Figtree';font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral-d);margin-bottom:6px}
   .howto h3{font-family:'Figtree';font-weight:800;font-size:1.18rem;margin-bottom:8px}
   .howto p{color:var(--mauve);font-size:.96rem}
+  /* Comment ca marche — flux officiel en 6 temps */
+  .flow{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:10px}
+  .flow li{position:relative;text-align:center;padding:0 6px}
+  .flow .num{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#fff;border:2px solid var(--coral);color:var(--coral-d);font-family:'Fugaz One',cursive;font-size:1rem;margin-bottom:12px;position:relative;z-index:1}
+  .flow li::before{content:"";position:absolute;top:22px;left:-50%;width:100%;height:2px;background:repeating-linear-gradient(90deg,var(--beige) 0 6px,transparent 6px 12px);z-index:0}
+  .flow li:first-child::before{display:none}
+  .flow h3{font-family:'Figtree';font-weight:800;font-size:1.02rem;color:var(--plum);margin-bottom:5px}
+  .flow p{font-size:.85rem;color:var(--mauve);line-height:1.45}
+  @media(max-width:820px){.flow{grid-template-columns:1fr 1fr}.flow li::before{display:none}}
 
   /* Carte de France */
   .map-band{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
@@ -352,30 +361,18 @@
 
 <section id="howto"><div class="wrap">
   <div class="head center">
-    <span class="kick" data-i18n="ht.kick">Simple et concret</span>
-    <h2 data-i18n="ht.h2">Comment ça marche, en trois étapes</h2>
-    <p data-i18n="ht.p">De l'envie d'agir à l'impact réel, près de chez vous.</p>
+    <span class="kick" data-i18n="ht.kick">Comment ça marche</span>
+    <h2 data-i18n="ht.h2">De la situation réelle à l'action, puis à sa transmission</h2>
+    <p data-i18n="ht.p">SUBSIDIUM part de votre réalité et vous accompagne, étape par étape, vers l'action concrète — puis sa transmission.</p>
   </div>
-  <div class="howto">
-    <div class="card reveal">
-      <div class="ic"><svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true"><path d="M24 39 C 7 27 10 14 18.5 14 C 22.5 14 24 18 24 18 C 24 18 25.5 14 29.5 14 C 38 14 41 27 24 39 Z" fill="#5E4A73"/><path d="M24 31 C 17 26 18 20 21.5 20 C 23 20 24 22 24 22 C 24 22 25 20 26.5 20 C 30 20 31 26 24 31 Z" fill="#F27B6A"/></svg></div>
-      <div class="st-n" data-i18n="ht.s1n">Étape 1</div>
-      <h3 data-i18n="ht.s1t">Rejoindre le mouvement</h3>
-      <p data-i18n="ht.s1p">Vous adhérez à la charte et entrez dans la communauté des citoyens engagés.</p>
-    </div>
-    <div class="card reveal">
-      <div class="ic"><svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true"><circle cx="24" cy="20" r="12" fill="#5E4A73"/><rect x="19" y="30" width="10" height="6" rx="2" fill="#7A6690"/><rect x="20" y="36" width="8" height="3" rx="1.5" fill="#5E4A73"/><path d="M19 20 L23 24 L24 17 L25 24 L29 20" stroke="#F27B6A" stroke-width="2.4" fill="none" stroke-linejoin="round"/></svg></div>
-      <div class="st-n" data-i18n="ht.s2n">Étape 2</div>
-      <h3 data-i18n="ht.s2t">Proposer ou passer à l'action</h3>
-      <p data-i18n="ht.s2p">Une idée, un projet, un coup de main : vous agissez sur ce qui compte pour vous.</p>
-    </div>
-    <div class="card reveal">
-      <div class="ic"><svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true"><path d="M24 40 V22" stroke="#5E4A73" stroke-width="3" stroke-linecap="round"/><path d="M23 29 C 14 29 11 22 11 18 C 18 18 23 22 23 29 Z" fill="#6E5982"/><path d="M25 26 C 34 26 37 19 37 15 C 30 15 25 19 25 26 Z" fill="#5E4A73"/><circle cx="20" cy="20" r="2" fill="#F27B6A"/><circle cx="29" cy="17" r="2" fill="#F27B6A"/></svg></div>
-      <div class="st-n" data-i18n="ht.s3n">Étape 3</div>
-      <h3 data-i18n="ht.s3t">Faire grandir, ensemble</h3>
-      <p data-i18n="ht.s3p">Accompagné par la communauté et des agents intelligents, votre engagement prend de l'ampleur.</p>
-    </div>
-  </div>
+  <ol class="flow">
+    <li class="reveal"><span class="num">01</span><h3 data-i18n="ht.v1">Observer</h3><p data-i18n="ht.d1">Partir d'une situation réelle : un besoin, une idée, une responsabilité.</p></li>
+    <li class="reveal"><span class="num">02</span><h3 data-i18n="ht.v2">Soutenir</h3><p data-i18n="ht.d2">Appuyer les initiatives et les personnes qui agissent.</p></li>
+    <li class="reveal"><span class="num">03</span><h3 data-i18n="ht.v3">Participer</h3><p data-i18n="ht.d3">Rejoindre une dynamique collective près de chez soi.</p></li>
+    <li class="reveal"><span class="num">04</span><h3 data-i18n="ht.v4">Initier</h3><p data-i18n="ht.d4">Porter son propre projet et en assumer la responsabilité.</p></li>
+    <li class="reveal"><span class="num">05</span><h3 data-i18n="ht.v5">Transformer</h3><p data-i18n="ht.d5">Faire émerger des résultats concrets sur le terrain.</p></li>
+    <li class="reveal"><span class="num">06</span><h3 data-i18n="ht.v6">Transmettre</h3><p data-i18n="ht.d6">Partager l'expérience et inspirer d'autres.</p></li>
+  </ol>
 </div></section>
 
 <section id="parcours"><div class="wrap"><div class="parcours-zone"><div class="head center" style="margin-bottom:22px"><span class="kick" data-i18n="parc.kicker">Votre progression</span><h2 data-i18n="parc.h2">Un parcours citoyen en cinq niveaux</h2><p data-i18n="parc.p">Survolez chaque étape : on gagne en responsabilité au fil de son engagement et de ses actions.</p></div><div class="path-illus"><svg viewBox="0 0 1200 460" role="img" aria-label="Parcours citoyen en cinq niveaux illustré comme un chemin qui monte à travers les arbres."><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FCF3EA"/><stop offset="1" stop-color="#F7E8DD"/></linearGradient></defs><rect width="1200" height="460" fill="url(#sky)"/><g class="cloud cloud1" transform="translate(190,76) scale(1.0)"><ellipse cx="-26" cy="6" rx="22" ry="14" fill="#FFFFFF" opacity=".92"/><ellipse cx="26" cy="6" rx="24" ry="15" fill="#FFFFFF" opacity=".92"/><ellipse cx="0" cy="-2" rx="32" ry="19" fill="#FFFFFF" opacity=".95"/><ellipse cx="2" cy="13" rx="44" ry="12" fill="#FBE7DC" opacity=".9"/></g><g class="cloud cloud2" transform="translate(540,52) scale(0.8)"><ellipse cx="-26" cy="6" rx="22" ry="14" fill="#FFFFFF" opacity=".92"/><ellipse cx="26" cy="6" rx="24" ry="15" fill="#FFFFFF" opacity=".92"/><ellipse cx="0" cy="-2" rx="32" ry="19" fill="#FFFFFF" opacity=".95"/><ellipse cx="2" cy="13" rx="44" ry="12" fill="#FBE7DC" opacity=".9"/></g><g class="cloud cloud3" transform="translate(830,92) scale(1.12)"><ellipse cx="-26" cy="6" rx="22" ry="14" fill="#FFFFFF" opacity=".92"/><ellipse cx="26" cy="6" rx="24" ry="15" fill="#FFFFFF" opacity=".92"/><ellipse cx="0" cy="-2" rx="32" ry="19" fill="#FFFFFF" opacity=".95"/><ellipse cx="2" cy="13" rx="44" ry="12" fill="#FBE7DC" opacity=".9"/></g><g class="cloud cloud4" transform="translate(1040,58) scale(0.7)"><ellipse cx="-26" cy="6" rx="22" ry="14" fill="#FFFFFF" opacity=".92"/><ellipse cx="26" cy="6" rx="24" ry="15" fill="#FFFFFF" opacity=".92"/><ellipse cx="0" cy="-2" rx="32" ry="19" fill="#FFFFFF" opacity=".95"/><ellipse cx="2" cy="13" rx="44" ry="12" fill="#FBE7DC" opacity=".9"/></g><path d="M0 380 C 200 350 360 372 560 360 C 780 347 980 372 1200 350 L1200 460 L0 460 Z" fill="#EFE0D2"/><path d="M0 410 C 240 392 430 416 680 404 C 920 393 1010 414 1200 402 L1200 460 L0 460 Z" fill="#E6D3C2"/><g transform="translate(250,332) scale(1.0)">
@@ -485,15 +482,14 @@
   <div class="map-band">
     <div class="map reveal">
       <svg viewBox="0 0 360 380" role="img" aria-label="Carte stylisée de la France avec des points d'action citoyenne.">
-        <polygon points="180,30 322,115 322,255 180,358 38,255 38,115" fill="#F9F1E9" stroke="#5E4A73" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M180 30 V358 M38 185 H322" stroke="#B9AEC0" stroke-width="1.5" opacity=".3"/>
+        <path d="M196,56 L234,60 L290,116 L316,168 L300,232 L298,250 L248,258 L212,262 L184,294 L132,302 L86,290 L96,238 L86,196 L40,182 L14,166 L48,150 L120,150 L168,108 L188,74 Z" fill="#F9F1E9" stroke="#5E4A73" stroke-width="5" stroke-linejoin="round"/>
         <g>
-          <circle cx="178" cy="128" r="7" class="pin"/><circle cx="178" cy="128" r="2.4" fill="#fff"/>
+          <circle cx="160" cy="128" r="7" class="pin"/><circle cx="160" cy="128" r="2.4" fill="#fff"/>
           <circle cx="196" cy="82" r="7" class="pin"/><circle cx="196" cy="82" r="2.4" fill="#fff"/>
-          <circle cx="228" cy="222" r="7" class="pin"/><circle cx="228" cy="222" r="2.4" fill="#fff"/>
-          <circle cx="250" cy="298" r="7" class="pin"/><circle cx="250" cy="298" r="2.4" fill="#fff"/>
-          <circle cx="108" cy="262" r="7" class="pin"/><circle cx="108" cy="262" r="2.4" fill="#fff"/>
-          <circle cx="92" cy="188" r="7" class="pin"/><circle cx="92" cy="188" r="2.4" fill="#fff"/>
+          <circle cx="238" cy="200" r="7" class="pin"/><circle cx="238" cy="200" r="2.4" fill="#fff"/>
+          <circle cx="250" cy="252" r="7" class="pin"/><circle cx="250" cy="252" r="2.4" fill="#fff"/>
+          <circle cx="104" cy="238" r="7" class="pin"/><circle cx="104" cy="238" r="2.4" fill="#fff"/>
+          <circle cx="92" cy="192" r="7" class="pin"/><circle cx="92" cy="192" r="2.4" fill="#fff"/>
         </g>
       </svg>
     </div>
@@ -729,7 +725,7 @@
       'j1.cat':'Evento','j1.date':'06 marzo · Lione','j1.h3':'Forum sui diritti delle donne','j1.p':'Una giornata di scambi e laboratori partecipativi.','j2.cat':'Consultazione','j2.date':'15 marzo · Nantes','j2.h3':"Nuovo piano di mobilità: di' la tua",'j2.p':'Gli abitanti invitati a co-progettare i futuri interventi.','j3.cat':'Racconto','j3.date':'27 marzo · Lille','j3.h3':'Una giornata per la transizione ecologica','j3.p':'Pulizia civica e stand associativi nel cuore del quartiere.','jread':"Leggi l'articolo",'jr.all':'Tutto il giornale',
       'cta.h2':'Pronto a trasformare le tue convinzioni in azioni?','cta.p':'Unisciti a SUBSIDIUM e inizia, già da oggi, a muovere il tuo territorio.','cta.btn':'Unisciti al movimento',
       'ft.tag':'Il movimento civico che trasforma le convinzioni in azioni concrete.','ft.c1':'Il movimento','ft.c1a':'La carta','ft.c1b':'Il percorso','ft.c1c':'Gli ambiti','ft.c2':'Agire','ft.c2a':'Idee','ft.c2b':'Progetti','ft.c2c':'Eventi','ft.c3':'Subsidium','ft.c3a':'Chi siamo','ft.c3b':'Organizzazioni','ft.c3c':'Contatti','ft.copy1':'© 2026 SUBSIDIUM — Tutti i diritti riservati','ft.copy2':'Note legali · Privacy (GDPR)',
-      'ht.kick':'Semplice e concreto','ht.h2':'Come funziona, in tre passi','ht.p':"Dalla voglia di agire all'impatto reale, vicino a casa.",'ht.s1n':'Passo 1','ht.s1t':'Unirsi al movimento','ht.s1p':'Aderisci alla carta ed entri nella comunità dei cittadini impegnati.','ht.s2n':'Passo 2','ht.s2t':"Proporre o passare all'azione",'ht.s2p':"Un'idea, un progetto, una mano: agisci su ciò che conta per te.",'ht.s3n':'Passo 3','ht.s3t':'Crescere, insieme','ht.s3p':'Accompagnato dalla comunità e da agenti intelligenti, il tuo impegno prende slancio.',
+      'ht.kick':'Come funziona','ht.h2':"Dalla situazione reale all'azione, poi alla trasmissione",'ht.p':"SUBSIDIUM parte dalla tua realtà e ti accompagna, passo dopo passo, verso l'azione concreta — poi la sua trasmissione.",'ht.v1':'Osservare','ht.d1':"Partire da una situazione reale: un bisogno, un'idea, una responsabilità.",'ht.v2':'Sostenere','ht.d2':'Appoggiare le iniziative e le persone che agiscono.','ht.v3':'Partecipare','ht.d3':'Unirsi a una dinamica collettiva vicino a casa.','ht.v4':'Avviare','ht.d4':'Portare avanti il proprio progetto e assumerne la responsabilità.','ht.v5':'Trasformare','ht.d5':'Far emergere risultati concreti sul territorio.','ht.v6':'Trasmettere','ht.d6':"Condividere l'esperienza e ispirare gli altri.",
       'map.kick':'In tutta la Francia','map.h2':'Un movimento che agisce vicino a te','map.p':'Iniziative civiche nascono in tutta la Francia — dalle grandi città ai piccoli quartieri, ovunque gli abitanti decidano di agire insieme.',
       'tm.kick':"L'hanno fatto",'tm.h2':'Cittadini, azioni, risultati','tm.q1':"Ho proposto un'idea una mattina; tre settimane dopo piantavamo alberi nella mia via.",'tm.r1':'Rifondatrice · Lione','tm.q2':'Qui non ci limitiamo a parlarne. Agiamo, insieme, e si vede nel quartiere.','tm.r2':'Iniziatore · Nantes','tm.q3':"L'accompagnamento mi ha guidata a ogni passo. Non mi sono mai sentita sola.",'tm.r3':'Ambasciatrice · Parigi',
       'fq.kick':'Buono a sapersi','fq.h2':'Domande frequenti','fq.q1':'Servono competenze particolari per partecipare?','fq.a1':'No. SUBSIDIUM si rivolge a chiunque voglia agire vicino a casa, qualunque sia il suo percorso.','fq.q2':'Quanto tempo bisogna dedicarci?','fq.a2':"Quanto vuoi. Si può iniziare da un'idea o da un aiuto occasionale, poi impegnarsi di più.",'fq.q3':'Cosa fanno esattamente gli agenti intelligenti?','fq.a3':'Ti orientano, strutturano le tue idee e facilitano l’azione collettiva. La decisione resta sempre umana.','fq.q4':'I miei dati sono protetti?','fq.a4':'Sì. I tuoi dati personali sono trattati nel rispetto del GDPR e non vengono mai condivisi senza il tuo consenso.',
@@ -755,7 +751,7 @@
       'j1.cat':'Event','j1.date':'6 March · Lyon','j1.h3':"Forum on women's rights",'j1.p':'A day of exchanges and participatory workshops.','j2.cat':'Consultation','j2.date':'15 March · Nantes','j2.h3':'New mobility plan: have your say','j2.p':'Residents invited to co-design future developments.','j3.cat':'Story','j3.date':'27 March · Lille','j3.h3':'A day for the ecological transition','j3.p':'Community clean-up and association stands in the heart of the neighbourhood.','jread':'Read the article','jr.all':'All the journal',
       'cta.h2':'Ready to turn your convictions into action?','cta.p':'Join SUBSIDIUM and start moving your community today.','cta.btn':'Join the movement',
       'ft.tag':'The citizen movement turning convictions into concrete action.','ft.c1':'The movement','ft.c1a':'The charter','ft.c1b':'The journey','ft.c1c':'The fields','ft.c2':'Take action','ft.c2a':'Ideas','ft.c2b':'Projects','ft.c2c':'Events','ft.c3':'Subsidium','ft.c3a':'About','ft.c3b':'Organisations','ft.c3c':'Contact','ft.copy1':'© 2026 SUBSIDIUM — All rights reserved','ft.copy2':'Legal notice · Privacy (GDPR)',
-      'ht.kick':'Simple and concrete','ht.h2':'How it works, in three steps','ht.p':'From the urge to act to real impact, close to home.','ht.s1n':'Step 1','ht.s1t':'Join the movement','ht.s1p':'You sign the charter and join the community of engaged citizens.','ht.s2n':'Step 2','ht.s2t':'Propose or take action','ht.s2p':'An idea, a project, a helping hand: you act on what matters to you.','ht.s3n':'Step 3','ht.s3t':'Grow, together','ht.s3p':'Supported by the community and intelligent agents, your commitment gains momentum.',
+      'ht.kick':'How it works','ht.h2':'From real-life situations to action — and passing it on','ht.p':'SUBSIDIUM starts from your reality and supports you, step by step, towards concrete action — and then passing it on.','ht.v1':'Observe','ht.d1':'Start from a real situation: a need, an idea, a responsibility.','ht.v2':'Support','ht.d2':'Back the initiatives and people who take action.','ht.v3':'Participate','ht.d3':'Join a collective effort close to home.','ht.v4':'Initiate','ht.d4':'Lead your own project and take responsibility for it.','ht.v5':'Transform','ht.d5':'Bring about concrete results on the ground.','ht.v6':'Pass on','ht.d6':'Share the experience and inspire others.',
       'map.kick':'Across France','map.h2':'A movement acting close to you','map.p':'Citizen initiatives are emerging across France — from big cities to small neighbourhoods, wherever residents decide to act together.',
       'tm.kick':'They did it','tm.h2':'Citizens, actions, results','tm.q1':'I suggested an idea one morning; three weeks later, we were planting trees on my street.','tm.r1':'Refounder · Lyon','tm.q2':"Here, we don't just talk about it. We act, together, and you can see it in the neighbourhood.",'tm.r2':'Initiator · Nantes','tm.q3':'The guidance supported me at every step. I never felt alone.','tm.r3':'Ambassador · Paris',
       'fq.kick':'Good to know','fq.h2':'Frequently asked questions','fq.q1':'Do I need any particular skills to join?','fq.a1':'No. SUBSIDIUM is for anyone who wants to act close to home, whatever their background.','fq.q2':'How much time does it take?','fq.a2':'As much as you like. You can start with an idea or a one-off helping hand, then get more involved.','fq.q3':'What exactly do the intelligent agents do?','fq.a3':'They guide you, structure your ideas and facilitate collective action. The decision always stays human.','fq.q4':'Is my data protected?','fq.a4':'Yes. Your personal data is handled in line with the GDPR and is never shared without your consent.',
