@@ -16,6 +16,16 @@ services:
       - "traefik.http.routers.subsidium-web.tls=true"
       - "traefik.http.routers.subsidium-web.tls.certresolver=mytlschallenge"
       - "traefik.http.services.subsidium-web.loadbalancer.server.port=80"
+      - "traefik.http.routers.subsidium-root.rule=Host(`subsidium.elfe.info`) && Path(`/`)"
+      - "traefik.http.routers.subsidium-root.entrypoints=websecure"
+      - "traefik.http.routers.subsidium-root.priority=200"
+      - "traefik.http.routers.subsidium-root.tls=true"
+      - "traefik.http.routers.subsidium-root.tls.certresolver=mytlschallenge"
+      - "traefik.http.routers.subsidium-root.service=subsidium-web"
+      - "traefik.http.routers.subsidium-root.middlewares=subsidium-rootredir"
+      - "traefik.http.middlewares.subsidium-rootredir.redirectregex.regex=^https?://[^/]+/?$"
+      - "traefik.http.middlewares.subsidium-rootredir.redirectregex.replacement=https://subsidium.elfe.info/site/"
+      - "traefik.http.middlewares.subsidium-rootredir.redirectregex.permanent=false"
 
 # IMPORTANT : verifier sur le VPS le nom EXACT du reseau Traefik et du certresolver
 # (copier ceux du conteneur subsidium-test). Ajuster si besoin avant 'up'.
